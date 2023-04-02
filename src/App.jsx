@@ -13,7 +13,6 @@ const App = () => {
   const extractKeywords = async (text) => {
     setLoading(true)
     setIsOpen(true)
-    console.log('token: ', import.meta.env.VITE_OPENAI_API_KEY)
 
     const options = {
       method: 'POST',
@@ -34,7 +33,6 @@ const App = () => {
       const response = await fetch(import.meta.env.VITE_OPENAI_API_URL, options)
       const json = await response.json()
       const data = json.choices[0].text.trim()
-      console.log(data)
   
       setKeywords(data)
       setLoading(false)
